@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for marca in object_list %}
+    <tr>
+      <th scope="row">{{marca.id}}</th>
+      <td>{{marca.nombre}}</td>
+      <td>
+        <ul>
+          <li>Editar</li>
+          <li>Borrar</li>
+        </ul>
+      </td>
+    </tr>
+  {% empty %}
+    <tr>
+        <p class="text-center">No hay Datos que Mostrar</p>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<div class="col-6">
+  <a class="btn btn-primary" href="{% url 'marcacreate' %}">Agregar</a>
+</div>
+{% endblock %}
