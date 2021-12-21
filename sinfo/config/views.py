@@ -10,12 +10,16 @@ from django.shortcuts import reverse
 # Models
 from .models import *
 
+# Form
+from .forms import MarcaForm
+
 class MarcaListView(ListView):
     model = Marca
 
 class MarcaCreateView(CreateView):
     model = Marca
-    fields = ['nombre']
+    form_class = MarcaForm
+    template_name = 'config/marca_form.html'
 
     def get_success_url(self):
         return reverse('marcalist')

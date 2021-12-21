@@ -1,34 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Marca</th>
-      <th scope="col">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for marca in object_list %}
-    <tr>
-      <th scope="row">{{marca.id}}</th>
-      <td>{{marca.nombre}}</td>
-      <td>
-        <ul>
-          <li>Editar</li>
-          <li>Borrar</li>
-        </ul>
-      </td>
-    </tr>
-  {% empty %}
-    <tr>
-        <p class="text-center">No hay Datos que Mostrar</p>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
-<div class="col-6">
-  <a class="btn btn-primary" href="{% url 'marcacreate' %}">Agregar</a>
+<div class="card bg-secondary mb-3" >
+  <div class="card-header"><i class="fa fa-list"></i>  Listado de Marcas</div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for marca in object_list %}
+          <tr>
+            <th scope="row">{{marca.id}}</th>
+            <td>{{marca.nombre}}</td>
+            <td>
+              <ul>
+                <li><i class="fa fa-pen"></i></li>
+                <li><i class="fa fa-eraser"></i></li>
+              </ul>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <br>
+       <a class="btn btn-primary btn-flat btnTest" href="{% url  'marcacreate' %}"><i class="fa fa-plus"></i> Nuevo Registro</a>
+    </div>
 </div>
 {% endblock %}
