@@ -15,7 +15,7 @@ class MarcaListView(ListView):
 
 class MarcaCreateView(CreateView):
     model = Marca
-    fields = ['nombre']
+    form_class = 
 
     def get_success_url(self):
         return reverse('marcalist')
