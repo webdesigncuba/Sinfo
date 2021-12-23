@@ -1,4 +1,5 @@
 '''
+<<<<<<< HEAD
 Formularios del Modelo Config
 '''
 
@@ -12,3 +13,8 @@ class MarcaForm(ModelForm):
     class Meta:
         model = Marca
         fields = '__all__'
+=======
+Formularios de la Configuración
+
+'''
+>>>>>>> github/master

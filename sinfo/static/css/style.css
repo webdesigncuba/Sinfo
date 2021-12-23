@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  ul li {
  list-style:none;
  float: left;
@@ -8,3 +9,11 @@
  {
     margin-top:145px !important;
  }
+=======
+ul li 
+{
+   list-style: none;
+   float: left;
+   margin-right: 25px;
+}
+>>>>>>> github/master

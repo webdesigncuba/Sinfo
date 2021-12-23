@@ -1,18 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
- <form method="post">{% csrf_token %}
-    <div class="card bg-secondary mb-3" >
-      <div class="card-header"><i class="fa fa-plus"></i>  Agregar Nuevas Marcas</div>
-        <div class="card-body">
-        <div class="form-group">
-        {{ form.as_p }}
-        </div>
-            <button class="btn btn-primary btn-flat btnTest" type="submit">
-                <i class="fa fa-save"></i> Guardar Registro
-            </button>
-          <br>
-        </div>
-    </div>
- </form>
-
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
 {% endblock %}
