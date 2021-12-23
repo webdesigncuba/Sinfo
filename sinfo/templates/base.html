@@ -7,13 +7,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <link rel="stylesheet" href="{% static 'css/all.css'%}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <title>SinFo</title>
 
-  	  {# Cargamos la librería #}
-	  {% load bootstrap4 %}
+
 
   </head>
 <body>
@@ -54,7 +53,6 @@
              {% block content %}{% endblock %}
         </div>
     </div>
-       {# JS y jQuery Bootstrap #}
-	  {% bootstrap_javascript jquery='full' %}
+
 </body>
 </html>

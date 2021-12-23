@@ -1,34 +1,59 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="ccard bg-light mb-3" >
+  <div class="card-header"><i class="fa fa-list"></i> {{title}}s </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for marca in object_list %}
+        <tr>
+          <th scope="row">{{marca.id}}</th>
+          <td>{{marca.nombre}}</td>
+          <td>
+            <ul>
+              <li><i class="fa fa-pen"></i></li>
+              <li><i class="fa fa-eraser"></i></li>
+            </ul>
+          </td>
+        </tr>
+      {% empty %}
+      <tr>
+        < p class="text-center">No hay Datos que Mostrar</p>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div>
+ <ul class="pagination pagination-sm">
+      {% if page_obj.has_previous %}
+      <li class="page-item">
+          <a class="page-link"  href="?page=1">&laquo; first</a>
+      </li>
+      <li class="page-item">
+          <a class="page-link"  href="?page={{ page_obj.previous_page_number }}">previous</a>
+      </li>
+      {% endif %}
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Marca</th>
-      <th scope="col">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for marca in object_list %}
-    <tr>
-      <th scope="row">{{marca.id}}</th>
-      <td>{{marca.nombre}}</td>
-      <td>
-        <ul>
-          <li>Editar</li>
-          <li>Borrar</li>
-        </ul>
-      </td>
-    </tr>
-  {% empty %}
-    <tr>
-        <p class="text-center">No hay Datos que Mostrar</p>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
+      {% if page_obj.has_next %}
+     <li class="page-item">
+          <a class="page-link"  href="?page={{ page_obj.next_page_number }}">next</a>
+     </li>
+     <li class="page-item">
+          <a class="page-link"  href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+     </li>
+      {% endif %}
+  </ul>
+</div>
+</div>
 <div class="col-6">
-  <a class="btn btn-primary" href="{% url 'marcacreate' %}">Agregar</a>
+  <a class="btn btn-primary" href="{% url 'marcacreate' %}"><i class="fa fa-plus"></i> Agregar </a>
 </div>
 {% endblock %}
