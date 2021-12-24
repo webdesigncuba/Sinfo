@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "bibhasdn.django-html"
+        "bibhasdn.django-html",
+        "sleepingsaint.gitignore-generator"
     ]
 }
