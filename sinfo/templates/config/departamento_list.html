@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="ccard bg-light mb-3" >
-  <div class="card-header"><i class="fa fa-list"></i> {{title}}s </div>
+  <div class="card-header"><i class="fa fa-list"></i> {{title}}</div>
   <div class="card-body">
     <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Marca</th>
+          <th scope="col">Nombre</th>
           <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
-      {% for marca in object_list %}
+      {% for area in object_list %}
         <tr>
-          <th scope="row">{{marca.id}}</th>
-          <td>{{marca.nombre}}</td>
+          <th scope="row">{{area.id}}</th>
+          <td>{{area.nombre}}</td>
           <td>
             <ul>
-              <li><a href="{% url 'marcaupdate' marca.id %}"><i class="fa fa-pen"></i></a></li>
-              <li><a href="{% url 'marcadelete' marca.id %}"><i class="fa fa-eraser"></i></a></li>
+              <li><a href="{% url 'marcaupdate' area.id %}"><i class="fa fa-pen"></i></a></li>
+              <li><a href="{% url 'marcadelete' area.id %}"><i class="fa fa-eraser"></i></a></li>
             </ul>
           </td>
         </tr>
@@ -54,6 +54,6 @@
 </div>
 </div>
 <div class="col-6">
-  <a class="btn btn-primary" href="{% url 'marcacreate' %}"><i class="fa fa-plus"></i> Agregar </a>
+  <a class="btn btn-primary" href="{% url 'areacreate' %}"><i class="fa fa-plus"></i> Agregar </a>
 </div>
 {% endblock %}

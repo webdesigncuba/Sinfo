@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Three Party
     'bootstrap4',
-    'simple_pagination',
+    #'simple_pagination',
     # APP
     'componentes',
     'pc',

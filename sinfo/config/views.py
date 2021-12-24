@@ -12,7 +12,7 @@ from django.urls import reverse_lazy
 from .models import *
 
 # Forms
-from .forms import MarcaForm
+from .forms import MarcaForm, DepartamentoForm
 
 class MarcaListView(ListView):
     model = Marca
@@ -53,12 +53,42 @@ class MarcaCreateView(CreateView):
 class MarcaUpdateView(UpdateView):
     model = Marca
     form_class = MarcaForm
-    template_name = 'config/marca_form.html'
+    template_name = 'config/marca_update.html'
     success_url = reverse_lazy('marcalist')
+
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        print(self.object)
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Edicion de Marcas'
+        return context
+
+
+class MarcaDeleteView(DeleteView):
+    model = Marca
+    success_url = reverse_lazy('marcalist')
+
+
+# Vistas Departamentos
+class DepartamentoListView(ListView):
+    model = Departamento
+    paginate_by = 10
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title']='Listado de Areas'
+        return context
+
+class DepartamentoCreateView(CreateView):
+    model = Departamento
+    form_class = DepartamentoForm
+    template_name = 'config/despartamento_form.html'
+    success_url = reverse_lazy('departamentolist')
+
 
     def post(self, request, *args, **kwargs):
         print(request.POST)
-        form = MarcaForm(request.POST)
+        form = DepartamentoForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(self.success_url)
@@ -70,5 +100,24 @@ class MarcaUpdateView(UpdateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Edicion de Marcas'
+        context['title']='Creacion de Areas'
         return context
+
+
+class DepartamentoUpdateView(UpdateView):
+    model = Departamento
+    form_class = DepartamentoForm
+    template_name = 'config/marca_update.html'
+    success_url = reverse_lazy('arealist')
+
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        print(self.object)
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Edicion de Areas'
+        return context
+
+
+class DepartamentoDeleteView(DeleteView):
+    model = Departamento
+    success_url = reverse_lazy('arealist')

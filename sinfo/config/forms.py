@@ -22,4 +22,15 @@ class MarcaForm(forms.ModelForm):
             'name': 'Nombre'
         }
 
+class DepartamentoForm(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(self, *args, **kwargs)
+        for forms in self.visible_fields():
+            forms.field.widget.attrs['class']='form-control'
+    class Meta:
+        model = Departamento
+        fields = '__all__'
+        labels = {
+            'name': 'Nombre'
+        }
