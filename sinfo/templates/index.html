@@ -1,9 +1,232 @@
-{% extends "base.html" %}
+<!--
+ Created on Sun Dec 26 2021
 
+ The MIT License (MIT)
+ Copyright (c) 2021 David Cordero Rosales
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+ and associated documentation files (the "Software"), to deal in the Software without restriction,
+ including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial
+ portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+{% extends "base.html" %}
 {% block content %}
-<div class="row">
-  <div class="col-12">
-       <h1 class="text-center">Bienvenidos a Sinfo {{version}}</h1>
-  </div>
-</div>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Sinfo v {{version}}</h1>
+    </div>
+    <div class="row">
+      <div class="col-12">
+           <div class="row">
+             <div class="col-6">
+              <div class="card bg-light mb-3">
+                <div class="card-header">Autenticación y Autorización</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="card">
+                        
+                          <div class="card-body">
+                          <h1 class="text-center"><i class="fa fa-user"></i></h1>
+                          <div class="subtitle text-center">Usuarios</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fa fa-users"></i></h1>
+                          <div class="subtitle text-center">Grupo de Usuarios</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+             <div class="col-6">
+              <div class="card bg-light mb-3">
+                <div class="card-header">Expedientes PC</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fa fa-desktop"></i></h1>
+                          <div class="subtitle text-center">Expedientes de PC</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+           </div>
+           <div class="row content-between">
+            <div class="col-6">
+              <div class="card bg-light mb-3">
+                <div class="card-header">Componetes</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fa fa-microchip"></i></h1>
+                          <div class="subtitle text-center">CPU</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-hdd"></i></h1>
+                          <div class="subtitle text-center">HDD</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-plug"></i></h1>
+                          <div class="subtitle text-center">Fuente</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-memory"></i></h1>
+                          <div class="subtitle text-center">Ram</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 mt-3 ">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-power-off"></i></h1>
+                          <div class="subtitle text-center">MBoard</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+             <div class="col-6">
+              <div class="card bg-light mb-3">
+                <div class="card-header">Perifericos</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-speaker"></i></h1>
+                          <div class="subtitle text-center">Bocinas</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-laptop"></i></h1>
+                          <div class="subtitle text-center">Chasis</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-print"></i></h1>
+                          <div class="subtitle text-center">Impresoras</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-speaker"></i></h1>
+                          <div class="subtitle text-center">Mause</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-desktop"></i></h1>
+                          <div class="subtitle text-center">Monitor</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fas fa-keyboard"></i></h1>
+                          <div class="subtitle text-center">Teclado</div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+           </div>
+           <div class="row">
+            <div class="col-6">
+              <div class="card bg-light mb-3">
+                <div class="card-header">Config</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <h1 class="text-center"><i class="fa fa-cog"></i></h1>
+                          <div class="subtitle text-center">Areas</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <a href="{% url 'marcalist'%}">
+                        <div class="card">
+                          <div class="card-body">
+                            <h1 class="text-center"><i class="fas fa-cog"></i></h1>
+                            <div class="subtitle text-center">Marcas</div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+             <div class="col-6">
+              <div class="card bg-light mb-3">
+                <div class="card-header">Software</div>
+                <div class="card-body">
+                  <div class="col-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h1 class="text-center"><i class="fas fa-cog"></i></h1>
+                        <div class="subtitle text-center">Software</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+           </div>
+      </div>
+    </div>     
 {% endblock %}

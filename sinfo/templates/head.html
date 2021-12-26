@@ -19,16 +19,8 @@
  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 
-{% extends 'base.html' %}
-{% block content %}
-{% include "head.html" %}
-<form method="post">{% csrf_token %}
-    <div class="ccard bg-light mb-3" >
-      <div class="card-header"><i class="fa fa-plus"></i> {{title}} </div>
-      <div class="card-body">
-        <p>Estas seguro de borrar "{{ object }}"?</p>
-      </div>
-    </div>
-    <button class="btn btn-danger"><i class="fa fa-eraser"></i> Borrar </button>
-</form>
-{% endblock %}
+{% block head%}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><i class="fa fa-list"></i> {{title}}</h1>
+</div>
+{%endblock%}

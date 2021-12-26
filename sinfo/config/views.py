@@ -23,11 +23,18 @@
 Vistas de Configuraciones
 '''
 
+
+
 # Django
+from xhtml2pdf import pisa
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import reverse
 from django.urls import reverse_lazy
+from django.http import HttpResponse
+from django.template.loader import get_template
+from django.template import context
+#from django_renderpdf.views import PDFView
 
 # Models
 from .models import *
@@ -142,3 +149,16 @@ class DepartamentoUpdateView(UpdateView):
 class DepartamentoDeleteView(DeleteView):
     model = Departamento
     success_url = reverse_lazy('arealist')
+
+'''''
+class MarcaPDF(PDFView):
+    
+    template_name = 'config/report-pdf.html'
+
+    def get_context_data(self, *args, **kwargs):
+        """Pass some extra context to the template."""
+        context = super().get_context_data(*args, **kwargs)
+        context['marca'] = Marca.objects.all
+        return context
+
+  '''  

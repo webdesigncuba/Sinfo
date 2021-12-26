@@ -1,0 +1,3 @@
+Sinfo 
+
+Requerimientos GTK3 Runtime para windows
