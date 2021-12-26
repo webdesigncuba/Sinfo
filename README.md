@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 SINFO
 -------
 Sistema de Gestion e Inventario de Medios de Computo.
