@@ -35,6 +35,7 @@ class MarcaForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for forms in self.visible_fields():
             forms.field.widget.attrs['class']='form-control'
+            
     class Meta:
         model = Marca
         fields = '__all__'
@@ -48,6 +49,7 @@ class DepartamentoForm(forms.ModelForm):
         super().__init__(self, *args, **kwargs)
         for forms in self.visible_fields():
             forms.field.widget.attrs['class']='form-control'
+
     class Meta:
         model = Departamento
         fields = '__all__'
