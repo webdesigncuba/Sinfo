@@ -18,10 +18,17 @@
  * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-td ul li 
-{
+
+td ul li {
     list-style: none;
     float: left;
     margin-right: 25px;
+}
 
+a {
+    color: #417690 !important;
+}
+
+.btn-primary {
+    color: #FFFFFF !important;
 }

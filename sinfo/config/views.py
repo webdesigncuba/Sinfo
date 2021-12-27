@@ -26,7 +26,7 @@ Vistas de Configuraciones
 
 
 # Django
-from xhtml2pdf import pisa
+#from xhtml2pdf import pisa
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import reverse
@@ -110,8 +110,8 @@ class DepartamentoListView(ListView):
 class DepartamentoCreateView(CreateView):
     model = Departamento
     form_class = DepartamentoForm
-    template_name = 'config/despartamento_form.html'
-    success_url = reverse_lazy('departamentolist')
+    template_name = 'config/departamento_form.html'
+    success_url = reverse_lazy('arealist')
 
 
     def post(self, request, *args, **kwargs):
