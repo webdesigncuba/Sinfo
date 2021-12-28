@@ -30,14 +30,14 @@
             </tr>
         </thead>
         <tbody>
-            {% for departamento in object_list %}
+            {% for so in object_list %}
             <tr>
-                <th scope="row">{{departamento.id}}</th>
-                <td>{{departamento.nombre}}</td>
+                <th scope="row">{{so.id}}</th>
+                <td>{{so.nombre}}</td>
                 <td>
                     <ul>
-                        <li><a href="{% url 'areaupdate' departamento.id %}"><i class="fa fa-pen"></i></a></li>
-                        <li><a href="{% url 'areadelete' departamento.id %}"><i class="fa fa-eraser"></i></a></li>
+                        <!--<li><a href="{% url 'marcaupdate' marca.id %}"><i class="fa fa-pen"></i></a></li>
+                        <li><a href="{% url 'marcadelete' marca.id %}"><i class="fa fa-eraser"></i></a></li>-->
                     </ul>
                 </td>
             </tr>
@@ -69,6 +69,6 @@
     </div>
 </div>
 <div class="col-6">
-    <a class="btn btn-primary" href="{% url 'areacreate' %}"><i class="fa fa-plus"></i> Agregar </a>
+    <a class="btn btn-primary" href="{% url 'marcacreate' %}"><i class="fa fa-plus"></i> Agregar </a>
 </div>
 {% endblock %} {% block javascript %} {% endblock javascript %}

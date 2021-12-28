@@ -20,7 +20,7 @@
 #
 
 '''
-Formularios del Modelo Config
+Formularios del Modelo Software
 '''
 
 # Django
@@ -29,7 +29,7 @@ from django import forms
 # Models
 from .models import *
 
-class MarcaForm(forms.ModelForm):
+class SOForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -37,22 +37,9 @@ class MarcaForm(forms.ModelForm):
             forms.field.widget.attrs['class']='form-control'
             
     class Meta:
-        model = Marca
+        model = SO
         fields = '__all__'
         labels = {
             'name': 'Nombre'
         }
 
-class DepartamentoForm(forms.ModelForm):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for forms in self.visible_fields():
-            forms.field.widget.attrs['class']='form-control'
-
-    class Meta:
-        model = Departamento
-        fields = '__all__'
-        labels = {
-            'name': 'Nombre'
-        }

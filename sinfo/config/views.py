@@ -135,7 +135,7 @@ class DepartamentoCreateView(CreateView):
 class DepartamentoUpdateView(UpdateView):
     model = Departamento
     form_class = DepartamentoForm
-    template_name = 'config/marca_update.html'
+    template_name = 'config/departamento_update.html'
     success_url = reverse_lazy('arealist')
 
 

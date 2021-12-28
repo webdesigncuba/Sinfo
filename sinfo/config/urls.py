@@ -38,5 +38,7 @@ urlpatterns = [
     path('marca/delete/<pk>', MarcaDeleteView.as_view(), name='marcadelete'),
    #path('marca/pdf', MarcaPDF.as_view(), name="marca-pdf" ),
     path('departamento/list', DepartamentoListView.as_view(), name='arealist'),
-    path('departamento/add', DepartamentoCreateView.as_view(), name='areacreate')
+    path('departamento/add', DepartamentoCreateView.as_view(), name='areacreate'),
+    path('departamento/update/<pk>', DepartamentoUpdateView.as_view(), name='areaupdate'),
+    path('departamento/delete/<pk>', DepartamentoDeleteView.as_view(), name='areadelete'),
 ]

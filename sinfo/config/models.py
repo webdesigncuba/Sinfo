@@ -27,7 +27,7 @@ Modelos de datos de la configtuacion del Sistema
 from django.db import models
 
 class Departamento(models.Model):
-    nombre = models.CharField('Nombre del Departamento', max_length=100)
+    nombre = models.CharField('Nombre del Departamento', max_length=100, unique=True)
 
     def __str__(self):
         return self.nombre
