@@ -24,19 +24,16 @@
     <div class="alert alert-dismissible alert-danger">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <h5> <i class="fa fa-ban"></i> Alerta </h5>
-        <u>
-                  {% for field in form %}
-                    {% for error in field.errors %}
-                        <li>{{error}}</li>
-                    {% endfor %}
-                  {% endfor %}
-              </u>
+        <ul>
+            {% for field in form %} {% for error in field.errors %}
+            <li>{{error}}</li>
+            {% endfor %} {% endfor %}
+        </ul>
     </div>
     {% endif %}
     <div class="form-group">
         <label for="nombre">{{ form.nombre.label}}</label> {{form.nombre}}
     </div>
-    <br>
-    <button class="btn btn-primary"><i class="fa fa-save"></i> Guardar </button>
+    <button class="btn btn-primary mt-4"><i class="fa fa-save"></i> Guardar </button>
 </form>
 {% endblock %}

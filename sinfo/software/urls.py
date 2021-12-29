@@ -1,5 +1,5 @@
 #
-# Created on Sat Dec 25 2021
+# Created on Tue Dec 28 2021
 #
 # The MIT License (MIT)
 # Copyright (c) 2021 David Cordero Rosales
@@ -19,29 +19,16 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-'''
-Formularios del Modelo Software
-'''
-
 # Django
-from django import forms
+from django.contrib import admin
+from django.urls import path
 
-# Models
-from .models import *
+# Views
+from software.views import *
 
-class SOForm(forms.ModelForm):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for forms in self.visible_fields():
-            forms.field.widget.attrs['class']='form-control mb-3'
-            
-    class Meta:
-        model = SO
-        fields = '__all__'
-        labels = {
-            'name': 'Marca',
-            'name': 'Versión',
-            'name': 'Tipo',
-        }
-
+urlpatterns = [
+    path('list/', SOListView.as_view(), name='softwarelist'),
+    path('add/', SOCreateView.as_view(), name='softwareadd'),
+    path('update/<pk>', SOUpdateView.as_view(), name='softwareupdate'),
+    path('delete/<pk>', SODeleteView.as_view(), name='softwaredelete'),
+]

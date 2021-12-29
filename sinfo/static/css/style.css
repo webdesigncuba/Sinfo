@@ -32,3 +32,16 @@ a {
 .btn-primary {
     color: #FFFFFF !important;
 }
+
+.bg-sinfo {
+    background-color: #417690;
+    color: #FFFFFF !important;
+}
+
+.header a {
+    color: #FFFFFF;
+}
+
+.alert li {
+    font-size: 15px;
+}

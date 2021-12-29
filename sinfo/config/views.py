@@ -31,10 +31,11 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import reverse
 from django.urls import reverse_lazy
-from django.http import HttpResponse
-from django.template.loader import get_template
-from django.template import context
+#from django.http import HttpResponse
+#from django.template.loader import get_template
+#from django.template import context
 #from django_renderpdf.views import PDFView
+from django.contrib import messages
 
 # Models
 from .models import *
@@ -63,6 +64,7 @@ class MarcaCreateView(CreateView):
         form = MarcaForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Guardado exitoso')
             return HttpResponseRedirect(self.success_url)
         self.object = None
         context = self.get_context_data(**kwargs)
@@ -119,6 +121,7 @@ class DepartamentoCreateView(CreateView):
         form = DepartamentoForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Guardado exitoso')
             return HttpResponseRedirect(self.success_url)
         self.object = None
         context = self.get_context_data(**kwargs)

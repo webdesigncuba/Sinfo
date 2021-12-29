@@ -25,6 +25,8 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.contrib import messages
+
 
 # Vista Software
 
@@ -32,7 +34,7 @@ from django.urls import reverse_lazy
 from .models import SO
 
 #Forms
-from forms import SOForm
+from .forms import SOForm
 
 class SOListView(ListView):
     model = SO
@@ -46,8 +48,8 @@ class SOListView(ListView):
 class SOCreateView(CreateView):
     model = SO
     form_class = SOForm
-    template_name = 'software/'
-    success_url = reverse_lazy('marcalist')
+    template_name = 'software/so_form.html'
+    success_url = reverse_lazy('softwarelist')
 
 
     def post(self, request, *args, **kwargs):
@@ -55,6 +57,7 @@ class SOCreateView(CreateView):
         form = SOForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Guardado exitoso')
             return HttpResponseRedirect(self.success_url)
         self.object = None
         context = self.get_context_data(**kwargs)
@@ -66,3 +69,21 @@ class SOCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['title']='Creacion de Software'
         return context
+
+class SOUpdateView(UpdateView):
+    model = SO
+    form_class = SOForm
+    template_name = 'software/so_update.html'
+    success_url = reverse_lazy('softwarelist')
+
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        print(self.object)
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Edicion de Software'
+        return context
+
+
+class SODeleteView(DeleteView):
+    model = SO
+    success_url = reverse_lazy('softwarelist')

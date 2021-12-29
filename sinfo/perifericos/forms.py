@@ -19,9 +19,7 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-'''
-Formularios del Modelo Software
-'''
+# Formularios del Modelo Perifericos
 
 # Django
 from django import forms
@@ -29,7 +27,7 @@ from django import forms
 # Models
 from .models import *
 
-class SOForm(forms.ModelForm):
+class ChasisForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -37,11 +35,11 @@ class SOForm(forms.ModelForm):
             forms.field.widget.attrs['class']='form-control mb-3'
             
     class Meta:
-        model = SO
+        model = Chasis
         fields = '__all__'
         labels = {
             'name': 'Marca',
-            'name': 'Versión',
-            'name': 'Tipo',
+            'name': 'Modelo',
+            'name': 'Numero de Serie',
         }
 
