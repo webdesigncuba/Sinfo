@@ -34,7 +34,7 @@ class MarcaForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for forms in self.visible_fields():
-            forms.field.widget.attrs['class']='form-control'
+            forms.field.widget.attrs['class']='form-control mb-3'
             
     class Meta:
         model = Marca
