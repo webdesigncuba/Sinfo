@@ -32,7 +32,7 @@ from django.urls import reverse_lazy
 from .models import SO
 
 #Forms
-from forms import SOForm
+from .forms import SOForm
 
 class SOListView(ListView):
     model = SO
@@ -66,3 +66,21 @@ class SOCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['title']='Creacion de Software'
         return context
+
+class SOUpdateView(UpdateView):
+    model = SO
+    form_class = SOForm
+    template_name = 'config/so_update.html'
+    success_url = reverse_lazy('softwarelist')
+
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        print(self.object)
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Edicion de Software'
+        return context
+
+
+class SODeleteView(DeleteView):
+    model = SO
+    success_url = reverse_lazy('softwarelist')
