@@ -19,28 +19,22 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-# Formularios del Modelo Perifericos
+'''
+Urls de Perifiericos
+'''
 
 # Django
-from django import forms
+from django.contrib import admin
+from django.urls import path
 
-# Models
-from .models import *
+# Views
 
-class ChasisForm(forms.ModelForm):
+from perifericos.views import *
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for forms in self.visible_fields():
-            forms.field.widget.attrs['class']='form-control mb-3'
-            
-    class Meta:
-        model = Chasis
-        fields = '__all__'
-        labels = {
-            'name': 'Marca',
-            'name': 'Modelo',
-            'name': 'Numero de Serie',
-            'name': 'Numero de Inventario',
-        }
-
+urlpatterns = [
+    path('chasis/list', ChasisListView.as_view(), name='chasislist'),
+    path('chasis/add', ChasisCreateView.as_view(), name='chasiscreate'),
+    path('chasis/update/<pk>', ChasisUpdateView.as_view(), name='chasisupdate'),
+    path('chasis/delete/<pk>', ChasisDeleteView.as_view(), name='chasisdelete'),
+    path('chasis/pdf', ChasisPDF.as_view(), name='reportpdf')
+]

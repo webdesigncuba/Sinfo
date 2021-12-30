@@ -31,6 +31,7 @@ class Chasis(models.Model):
     marca = models.ForeignKey(Marca, verbose_name='Marca del Chasis', on_delete=models.CASCADE)
     modelo = models.CharField('Modelo del Chasis',max_length=100)
     ns = models.CharField('Numero de serie del Chasis', max_length=100)
+    inv = models.CharField('Numero de Inventario', max_length=100, default='', unique=True)
 
     def __str__(self):
         return str(self.marca)

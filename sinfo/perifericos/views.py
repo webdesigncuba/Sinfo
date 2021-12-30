@@ -28,7 +28,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import context
-#from django_renderpdf.views import PDFView
+from django_renderpdf.views import PDFView
 from django.contrib import messages
 
 
@@ -48,15 +48,15 @@ class ChasisListView(ListView):
         return context
 
 class ChasisCreateView(CreateView):
-    model = Marca
-    form_class = MarcaForm
-    template_name = 'config/chasis_form.html'
+    model = Chasis
+    form_class = ChasisForm
+    template_name = 'perifericos/chasis_form.html'
     success_url = reverse_lazy('chasislist')
 
 
     def post(self, request, *args, **kwargs):
         print(request.POST)
-        form = MarcaForm(request.POST)
+        form = ChasisForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Guardado exitoso')
@@ -69,30 +69,40 @@ class ChasisCreateView(CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title']='Creacion de Marcas'
+        context['title']='Creacion de Chasis'
         return context
 
     # def get_success_url(self):
     #     return reverse('marcalist')
 
-class MarcaUpdateView(UpdateView):
-    model = Marca
-    form_class = MarcaForm
-    template_name = 'config/marca_update.html'
-    success_url = reverse_lazy('marcalist')
+class ChasisUpdateView(UpdateView):
+    model = Chasis
+    form_class = ChasisForm
+    template_name = 'perifericos/chasis_update.html'
+    success_url = reverse_lazy('chasislist')
 
 
     def get_context_data(self, *, object_list=None, **kwargs):
         print(self.object)
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Edicion de Marcas'
+        context['title'] = 'Edicion de Chasis'
         return context
 
 
-class MarcaDeleteView(DeleteView):
-    model = Marca
-    success_url = reverse_lazy('marcalist')
+class ChasisDeleteView(DeleteView):
+    model = Chasis
+    success_url = reverse_lazy('chasislist')
 
+class ChasisPDF(PDFView):
+    template_name = 'report.html'
+
+    def get_context_data(self, *args, **kwargs):
+        """Pass some extra context to the template."""
+        context = super().get_context_data(*args, **kwargs)
+
+        context['chasis'] = Chasis.objects.all()
+
+        return context
 
 
 
